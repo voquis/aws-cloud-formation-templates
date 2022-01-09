@@ -10,7 +10,7 @@ Set the `Project` and `Env` parameters accordingly:
 aws cloudformation create-stack \
   --stack-name terraform-backend \
   --enable-termination-protection \
-  --template-url s3://voquis/aws/cloudformation/templates/terraform-backend/template.yml \
+  --template-url https://voquis.s3.eu-west-2.amazonaws.com/aws/cloudformation/templates/terraform-backend/template.yml \
   --parameters ParameterKey=Project,ParameterValue=myproj ParameterKey=Env,ParameterValue=myenv
 ```
 
