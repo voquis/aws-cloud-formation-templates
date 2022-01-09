@@ -19,4 +19,4 @@ jobs:
           role-to-assume: ${{ secrets.AWS_ROLE_TO_ASSUME }}
           aws-region: eu-west-2
       # Push templates to S3 bucket
-      - run: ./scripts/publish.yml
+      - run: ./scripts/publish.sh
