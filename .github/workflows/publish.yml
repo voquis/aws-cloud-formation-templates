@@ -1,0 +1,22 @@
+name: Publish
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
+    steps:
+      # Checkout project code
+      - uses: actions/checkout@v2
+      # Prepare AWS credentials using OIDC provider (uses id-token and contents)
+      - uses: aws-actions/configure-aws-credentials@v1
+        with:
+          role-to-assume: ${{ secrets.AWS_ROLE_TO_ASSUME }}
+          aws-region: eu-west-2
+      # Push templates to S3 bucket
+      - run: ./scripts/publish.yml
