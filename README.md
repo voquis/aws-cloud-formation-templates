@@ -14,7 +14,7 @@ Add any required parameters, replacing key names and values, i.e. `Param1`, `Par
 aws cloudformation create-stack \
   --stack-name template-name \
   --enable-termination-protection \
-  --template-url s3://voquis/aws/cloudformation/templates/template-name/template.yml \
+  --template-url https://voquis.s3.eu-west-2.amazonaws.com/aws/cloudformation/templates/template-name/template.yml \
   --parameters ParameterKey=Param1,ParameterValue=Val1 ParameterKey=Param2,ParameterValue=Val2
 ```
 
@@ -24,12 +24,13 @@ To update stacks following template changes, run the following replacing `templa
 aws cloudformation update-stack \
   --stack-name template-name \
   --enable-termination-protection \
-  --template-url s3://voquis/aws/cloudformation/templates/template-name/template.yml \
+  --template-url https://voquis.s3.eu-west-2.amazonaws.com/aws/cloudformation/templates/template-name/template.yml \
   --parameters ParameterKey=Param1,ParameterValue=Val1 ParameterKey=Param2,ParameterValue=Val2
 ```
 
 ### Deleting stacks
 To delete a stack and the infrastructure provisioned by the stack, first deactivate termination protection:
+```shell
 aws cloudformation \
   update-termination-protection \
   --no-enable-termination-protection \
